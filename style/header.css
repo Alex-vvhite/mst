@@ -1,0 +1,92 @@
+.header{
+    position: fixed;
+    top: 0; 
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 20px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+.container{
+    max-width: 1400px;
+    margin: 0 auto;
+}
+@media (max-width: 480px) {
+    .container{max-width: 200px;}
+}
+.header_items{
+    min-height: 58px;
+    display: flex;
+    align-items: center;
+    gap: 200px;
+}
+@media (max-width: 768px) {
+    .header_items{
+        justify-content: space-between;
+    }
+}
+.header_logo{
+    font-family: "Prata";
+    font-size: 36px;
+    color: #ffffff;
+}
+.header_menu{
+    display: flex;
+    align-items: center;
+    gap: 29px;
+}
+.header_link{
+    cursor: pointer;
+    font-family: Arial;
+    font-style: italic;
+    font-size: 16px;
+    color: #ffffff;
+    letter-spacing: 4%;
+}
+
+/* //////////////////////////Бургер-меню//////////////////////////////////////////*/
+.burger_menu {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+    z-index: 1100;
+}
+
+.burger_menu span {
+    width: 25px;
+    height: 3px;
+    background-color: #ffffff;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* Прячем стандартное меню на мобильных */
+@media (max-width: 768px) {
+    .burger_menu {
+        display: flex;
+    }
+
+    .header_menu {
+        display: none; /* Прячем меню */
+        flex-direction: column;
+        position: absolute;
+        top: 100%; /* Показываем меню под хедером */
+        right: 0;
+        background-color: #282828;
+        width: 100%;
+        gap: 20px;
+        padding: 20px 0;
+        text-align: center;
+        z-index: 1000;
+    }
+
+    .header_menu.active {
+        display: flex; /* Показываем меню при активации */
+    }
+
+    .header_items {
+        gap: 20px;
+    }
+}
